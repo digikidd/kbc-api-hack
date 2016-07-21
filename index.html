@@ -3,42 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>The Weather Vane</title>
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 
-    <!--Let browser know website is optimized for mobile-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/apiStyles.css">
 </head>
 <body>
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <h4>5 Day Forecast</h4>
+            </tr>
+            </thead>
+            <tbody id="weatherTable">
+                <tr id="daysOfWeek">
+                <tr id="day1"></tr>
+                <tr id="day2"></tr>
+                <tr id="day3"></tr>
+                <tr id="day4"></tr>
+                <tr id="day5"></tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close btn-flat">close</a>
+    </div>
+</div>
+<video autoplay id="bgvid" loop>
+    <source src="images/Barometer.mp4" type="video/mp4">
+</video>
 <div id="input-wrapper" class="container">
     <div class="row">
-        <div class="row">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li id="tempF" class="tab col s3"><a href="#farenheit">Farenheit</a></li>
-                    <li id="tempC" class="tab col s3"><a class="active" href="#celsius">Celsius</a></li>
-                </ul>
-            </div>
-            <div id="farenheit" class="col s12"></div>
-            <div id="celsius" class="col s12"></div>
+        <div class="col s12" id="heading">
+            <span>The Weather Vane</span>
         </div>
-        <div class="col s6"><input type="text" class="titleText" placeholder="enter your city..."/></div>
-        <div class="col s6">
-            <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>get weather</a>
+        <div class="col s12 caption right-align" id="unit-select">
+            <a>Select your unit measurement.</a>
         </div>
+    </div>
+    <div class="row">
+        <div class="col s12 caption right-align" id="tempTab">
+            <ul class="tabs">
+                <li id="tempF" class="tab col s6"><a class="active" href="#imperial">Farenheit</a></li>
+                <li id="tempC" class="tab col s6"><a  href="#metric">Celsius</a></li>
+            </ul>
+        <div id="imperial" class="col s12"></div>
+        <div id="metric" class="col s12"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6 push-s3" id="user-input">
+            <input type="text" class="titleText" placeholder="enter your city..."/>
+        </div>
+        <div class="col s6 push-s4" id="user-btn">
+            <a class="waves-effect waves-light btn">get weather</a>
+        </div>
+    </div>
 
+<div id="weather-info" class="container">
+    <div class="row">
+        <div class="col s12" id="userCity">
+            <span id="cityName"></span>
+        </div>
+        <div class="col s12" id="currentW">
+            <ul class="z-depth-3" id="currentWeather">
+            </ul>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col s12 push-s8" id="forecast">
+            <a class="btn modal-trigger" id="getForecast" data-target="modal1">get 5 day forecast</a>
+        </div>
     </div>
 </div>
 
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script src="js/kbcMethods.js"></script>
 <script src="js/apiApp.js"></script>
 </body>
 </html>
-
-
