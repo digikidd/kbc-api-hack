@@ -8,7 +8,7 @@ $ (document).ready (function () {
     function userInput (theCity, tempUnit) {
         this.city = $ ('.titleText').val ();
         this.tempUnit = "&units=" + tempUnit;
-        this.baseURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
+        this.baseURL = "//api.openweathermap.org/data/2.5/forecast?q=";
         this.APIKEY = "&APPID=5b899b2dfcd111486e801f05f6530611";
         this.completeUrl = this.baseURL + this.city + this.tempUnit + this.APIKEY;
         this.imperial = {"wind": " mph", "temp": " F°"};
@@ -22,6 +22,14 @@ $ (document).ready (function () {
         this.forecastIcon = [];
         this.forecastHumidity = [];
     }
+
+    document.getElementById("userInput")
+        .addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode == 13) {
+                $(".waves-effect").click();
+            }
+        });
 
     $ ('.waves-effect').click (function () {
         var theCity = $ ('.titleText').val ();
