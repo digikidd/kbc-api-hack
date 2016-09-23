@@ -24,7 +24,7 @@ video {
     color: black;
     padding: 3rem;
     margin: auto;
-    opacity: .8;
+    /*opacity: .8;*/
 }
 
 .tabs {
