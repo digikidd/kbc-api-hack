@@ -20,11 +20,11 @@ video {
 
 #input-wrapper {
     width: 100%;
-    background-color: #BEE8DB;
+    background-color: rgba(190, 232, 219, 0.6);
     color: black;
     padding: 3rem;
     margin: auto;
-    opacity: .8;
+    /*opacity: .8;*/
 }
 
 .tabs {
